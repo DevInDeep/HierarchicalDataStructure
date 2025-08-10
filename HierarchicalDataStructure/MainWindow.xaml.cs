@@ -11,6 +11,7 @@ namespace HierarchicalDataStructure
     {
         public MainWindow() => InitializeComponent();
         private void MainWindow_Loaded(object sender, RoutedEventArgs e) => treeView.ItemsSource = TestData.FetchTestData().Convert();
-        private void txtSearch_TextChanged(object sender, TextChangedEventArgs e) { }
+        private void txtSearch_TextChanged(object sender, TextChangedEventArgs e) => treeView.Items.FilterBy(predicate);
+        private bool predicate(TreeViewItem item) => item.GetHeaderOrEmpty().StartsWith(txtSearch.Text, StringComparison.OrdinalIgnoreCase);
     }
 }
