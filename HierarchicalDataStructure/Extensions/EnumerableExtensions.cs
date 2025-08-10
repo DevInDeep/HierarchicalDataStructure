@@ -9,11 +9,5 @@ namespace HierarchicalDataStructure.Extensions
             foreach (var item in enumerable)
                 onItem(item);
         }
-
-        internal static IEnumerable<TreeViewItem> Convert(this IEnumerable<string> items)
-        {
-            foreach (var item in items)
-                yield return new TreeViewItem() { Header = item };
-        }
     }
 }
